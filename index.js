@@ -21,7 +21,7 @@ const monologueLines = [
   'I am the one who knocks!'
 ];
 
-const wordCountMap = monologueLines.reduce(function(map, line) {
+var wordCountMap = monologueLines.reduce(function(map, line) {
   const wordCount = line.split(" ").length
   if (map.includes(wordCount)) {
     map[wordCount] += 1
