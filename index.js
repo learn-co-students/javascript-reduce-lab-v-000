@@ -22,7 +22,9 @@ var totalBatteries = batteryBatches.reduce(function(a,b){
 });
 
 var wordCountMap = monologueLines.reduce(
-  function(sentence, index){
+  function(acc, obj, index){
+    var len = (obj.split(" ").length).toString();  //gets words in currnet sentence
+    var newObj.len=1;
+    return acc = Object.assign({},newObj);
 
-  
 },{});
