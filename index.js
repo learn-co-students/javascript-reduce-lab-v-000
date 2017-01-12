@@ -16,3 +16,15 @@ const monologueLines = [
   'No.',
   'I am the one who knocks!'
 ];
+
+var totalBatteries = batteryBatches.reduce(function(a,b){
+      return a + b;
+});
+
+var wordCountMap = monologueLines.reduce(
+  function(acc, obj, index){
+    var len = (obj.split(" ").length).toString();  //gets words in currnet sentence
+    var newObj.len=1;
+    return acc = Object.assign({},newObj);
+
+},{});
