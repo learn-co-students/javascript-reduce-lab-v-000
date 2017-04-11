@@ -22,14 +22,18 @@ function addBatteries(total, battery) {
 }
 
 var totalBatteries = batteryBatches.reduce(addBatteries, 0);
-const wordCountMap = monologueLines.reduce((map, sentence) => {
-  const wordCount = sentence.split(' ').length;
 
-  if (!map[wordCount]) {
-    map[wordCount] = 0;
+var wordCountArray = monologueLines.map( function (sentence) {
+	return sentence.split(" ").length
+}).sort();
+
+function callback(object, arrayItem) {
+  if (object[arrayItem] === undefined) {
+    var newObject = Object.assign({}, object, {[arrayItem]: 1});
+  } else {
+    var newObject = Object.assign({}, object, {[arrayItem]: object[arrayItem]+1});
   }
+  return newObject;
+}
 
-  map[wordCount]++;
-
-  return map;
-}, {});
+const wordCountMap = wordCountArray.reduce(callback, {});
