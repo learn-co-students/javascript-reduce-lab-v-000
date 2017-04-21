@@ -1,4 +1,14 @@
+//collection.reduce(callback, initialValue)
+
 const batteryBatches = [4, 5, 3, 4, 4, 6, 5];
+
+// function addBatteries(total, num) {
+//   return total + num;
+// }
+//
+// var totalBatteries = batteryBatches.reduce(addBatteries, 0)
+
+var totalBatteries = batteryBatches.reduce((total, num) => total + num, 0)
 
 const monologueLines = [
   'Who are you talking to right now?',
@@ -16,3 +26,12 @@ const monologueLines = [
   'No.',
   'I am the one who knocks!'
 ];
+
+var wordCountMap = monologueLines.reduce((map, line) => {
+  var lineCount = line.split(" ").length
+  if (!map[lineCount]) {
+    map[lineCount] = 0
+  }
+  map[lineCount]++
+  return map
+}, {});
