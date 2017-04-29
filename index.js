@@ -16,3 +16,39 @@ const monologueLines = [
   'No.',
   'I am the one who knocks!'
 ];
+
+const totalBatteries = batteryBatches.reduce((a, b) => a + b, 0)
+
+// const totalBatteries = batteryBatches.reduce(function (a, b) {
+//   debugger;
+//   return a + b 
+// })
+
+// console.log(totalBatteries)
+
+const wordCountMap = monologueLines.reduce(function (lines, value, index) {
+  debugger;
+  let wordCount = value.split(' ').length
+  if (lines[wordCount]) {
+    lines[`${wordCount}`]++ 
+  } else {
+    lines[`${wordCount}`] = 1
+  }
+  
+  return lines  
+
+}, {})
+// the {} indicates that lines is a new empty object
+
+// console.log(wordCountMap)
+// monologueLines[0].split(' ').length
+
+// [0, 1, 2, 3, 4].reduce(
+//   function (accumulator,
+//     currentValue,
+//     currentIndex,
+//     array
+//   ) {
+//     return accumulator + currentValue;
+//   }
+// );
