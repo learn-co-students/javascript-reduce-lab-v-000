@@ -1,5 +1,7 @@
 const batteryBatches = [4, 5, 3, 4, 4, 6, 5];
 
+const totalBatteries = batteryBatches.reduce((total, batteries) => total + batteries, 0)
+
 const monologueLines = [
   'Who are you talking to right now?',
   'Who is it you think you see?',
@@ -16,3 +18,9 @@ const monologueLines = [
   'No.',
   'I am the one who knocks!'
 ];
+
+const wordCountMap = monologueLines.reduce((wordCountToLines, line) => {
+  const wordCount = line.split(" ").length
+  const lineCount = wordCountToLines[wordCount.toString()] || 0
+  return Object.assign({}, wordCountToLines, {[wordCount]: lineCount + 1}) },
+{})
