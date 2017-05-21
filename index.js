@@ -24,11 +24,11 @@ const monologueLines = [
 
 var wordCountMap = monologueLines.reduce(function (count, line) {
   let wordCount = line.split(" ").length;
-  if (count) {
-    count[wordCount]++;
+  if (!count[wordCount]) {
+    count[wordCount]= 1;
     }
     else {
-      count[wordCount] = 1;
+      count[wordCount]++;
     }
     return count;
   },
