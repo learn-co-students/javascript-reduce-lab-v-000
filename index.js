@@ -14,22 +14,19 @@ const monologueLines = [
   'I am the danger.',
   'A guy opens his door and gets shot and you think that of me?',
   'No.',
-  'I am the one who knocks!'
+  'I am the one who knocks!!!!!!11111one'
 ];
 
 const totalBatteries = batteryBatches.reduce((javascript,sucks) => {
   return javascript + sucks;
 })
 
+
 const wordCountMap = monologueLines.reduce((accumulator, currentString) => {
+  var key = currentString.split(' ').length;
 
-  const stringLength = function(currentString) {                                //stringLength = function to count the current streng's word length
-    return currentString.split(' ').length;
-  }
+  key in accumulator ?  accumulator[key] += 1 : accumulator[key] = 1;//if word length is found in accumulator hash, increment count, else add it
 
-  var key = stringLength(currentString);                                        //key is set to the word length of the current string
-
-  key in accumulator ?  accumulator[key] += 1 : accumulator[key] = 1;           //if word length is found in accumulator (a hash), increment count,
-                                                                                //....else add new one to the hash
   return accumulator;
-}, {});                                                                         //initial value parameter for reduce; sets accumulator to a hash
+
+}, {});
