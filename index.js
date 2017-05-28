@@ -1,5 +1,7 @@
 const batteryBatches = [4, 5, 3, 4, 4, 6, 5];
 
+var totalBatteries = batteryBatches.reduce((total, batch) => total += batch, 0)
+
 const monologueLines = [
   'Who are you talking to right now?',
   'Who is it you think you see?',
@@ -16,3 +18,19 @@ const monologueLines = [
   'No.',
   'I am the one who knocks!'
 ];
+
+var wordCountMap = monologueLines.reduce((map, line) => {
+  // Determine the word count of each line
+  var wordCount = line.split(" ").length
+
+  // Creates a key/value pair in the map in order to start incrementing if the key/value pair does not yet exist
+  if (!map[wordCount]) {
+    map[wordCount] = 0;
+  }
+
+  //increment the key value pair
+  map[wordCount] += 1;
+
+  //return the map
+  return map;
+}, {})
