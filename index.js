@@ -16,3 +16,25 @@ const monologueLines = [
   'No.',
   'I am the one who knocks!'
 ];
+
+
+
+// { '7': 2, '9': 1 }
+//  'We have two sentences with 7 words, and one sentence with 9 words'.
+
+var totalBatteries = batteryBatches.reduce(function(acc, value) {
+  return acc + value
+}, 0)
+
+const wordCountMap = monologueLines.reduce(function(tally, line) {
+  const count = line.split(" ").length.toString(); 
+  if (count in tally) {
+    tally[count]++; 
+  } else {
+    tally[count] = 1;
+  }
+  return tally; 
+
+}, {});
+
+
