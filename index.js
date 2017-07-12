@@ -36,3 +36,26 @@ var wordCountMap = monologueLines.reduce((map, sentence) => {
 
   return map;
 }, {});
+
+/*
+
+function cw(sentence) {
+   a = String(sentence).split(' ').length;
+   return a;
+}
+
+var countword_arr = monologueLines.map(cw,0)
+
+
+var wordCountMap = countword_arr.reduce(function(map, obj) {
+    if (!map[obj]) {
+      map[obj] = 0;
+    }
+
+    map[obj]++
+
+    return map
+}, {});
+wordCountMap
+
+*/
