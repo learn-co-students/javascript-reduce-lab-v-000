@@ -28,7 +28,7 @@ function wordCount(str) {
 }
 
 function callback2(total, value){
-  key = wordCount(value).toString();
+  let key = wordCount(value).toString();
   if (key in total){
     total[key]++;
   } else {
