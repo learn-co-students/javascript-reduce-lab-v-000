@@ -16,3 +16,25 @@ const monologueLines = [
   'No.',
   'I am the one who knocks!'
 ];
+
+var totalBatteries = batteryBatches.reduce((a, b) => {return a + b});
+
+// This is cool...
+// This is how word count works:
+//
+// wordCount({}, monologueLines[0])        
+// =>>> { '7': 1 }  
+
+// More clearly (kinda like Ruby's tap on a hash).
+// wordCount({}, 'Who are you talking to right now?')
+// =>>> { '7': 1 }  
+
+function wordCount(sum, line){
+  const wordCount = line.split(" ").length;
+
+  !sum[wordCount] ? (sum[wordCount] = 1) : (sum[wordCount]++);
+
+  return sum;
+}
+
+var wordCountMap = monologueLines.reduce(wordCount, {})
