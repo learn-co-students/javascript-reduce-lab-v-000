@@ -16,3 +16,20 @@ const monologueLines = [
   'No.',
   'I am the one who knocks!'
 ];
+
+function callback(total, value) {
+  return (total + value);
+}
+var totalBatteries = batteryBatches.reduce(callback)
+
+function wordCount(key, value){
+  var count = value.split(" ").length;
+  if (key[count]) {
+    key[count]++;
+  }
+  else {
+    key[count] = 1;
+  }
+  return key;
+}
+let wordCountMap = monologueLines.reduce(wordCount,{})
