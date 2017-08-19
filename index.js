@@ -16,3 +16,21 @@ const monologueLines = [
   'No.',
   'I am the one who knocks!'
 ];
+
+
+// var total = [0, 1, 2, 3].reduce(function(sum, value) {
+//   return sum + value;
+// }, 0);
+// // total is 6
+// arr.reduce(callback[, initialValue])
+
+var totalBatteries = batteryBatches.reduce ( (a,b) => {return a + b}, 0)
+
+// Create a new variable called wordCountMap that reduces the monologueLines to a map that resembles the output as shown above.
+
+var wordCountMap = monologueLines.reduce(
+  function(a, b, c){
+    console.log(`${a} ${b} ${c}`)
+  }
+  }
+)
