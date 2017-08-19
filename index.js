@@ -28,9 +28,35 @@ var totalBatteries = batteryBatches.reduce ( (a,b) => {return a + b}, 0)
 
 // Create a new variable called wordCountMap that reduces the monologueLines to a map that resembles the output as shown above.
 
+
+// working on this answer - semi close
 var wordCountMap = monologueLines.reduce(
-  function(a, b, c){
-    console.log(`${a} ${b} ${c}`)
-  }
+  function(){
+    var result = {}
+
+    monologueLines.forEach( (sentence)=>
+      {
+        var sentence_word_count = (sentence.split(" ").length)
+
+        if (!result[sentence_word_count]){  // this means the key doesnt exist so we'll set it
+          result[sentence_word_count] = 0 // set the key/value with a count of zero
+        }
+
+        result[sentence_word_count]++;  // increment by 1
+      }
+  ) // for each
+  return result
   }
 )
+
+// const wordCountMap = monologueLines.reduce((map, sentence) => {
+//   const wordCount = sentence.split(' ').length;
+//
+//   if (!map[wordCount]) {
+//     map[wordCount] = 0;
+//   }
+//
+//   map[wordCount]++;
+//
+//   return map;
+// }, {});
