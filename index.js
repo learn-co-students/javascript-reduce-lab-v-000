@@ -16,3 +16,17 @@ const monologueLines = [
   'No.',
   'I am the one who knocks!'
 ];
+
+var totalBatteries = batteryBatches.reduce((sum, batch) => {
+  return sum + batch;
+}, 0)
+
+// var wordCountMap = {} sets it to a empty hash here
+
+var wordCountMap = monologueLines.reduce((map, line) => {
+  var word_count = line.split(" ").length;
+  map[word_count] ? map[word_count] += 1 : map[word_count] = 1
+  return map
+}, {});
+
+// var wordCountMap = {} still undefined if reassigned here
