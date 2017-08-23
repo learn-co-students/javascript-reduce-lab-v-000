@@ -1,5 +1,11 @@
 const batteryBatches = [4, 5, 3, 4, 4, 6, 5];
 
+// function callback(totalAmount, item) {
+//   return totalAmount + item;
+// }
+// var totalBatteries = batteryBatches.reduce(callback, 0);
+var totalBatteries = batteryBatches.reduce((total, item) => total + item, 0);
+
 const monologueLines = [
   'Who are you talking to right now?',
   'Who is it you think you see?',
@@ -16,3 +22,25 @@ const monologueLines = [
   'No.',
   'I am the one who knocks!'
 ];
+
+// function callback(countMap, sentence){
+//   var wordCount = sentence.split(' ').length;
+//     if (countMap[wordCount])
+//       {countMap[wordCount]++;}
+//     else
+//       {countMap[wordCount] = 1;}
+//   return countMap;
+// }
+//
+// var wordCountMap = monologueLines.reduce(callback,{});
+
+var wordCountMap = monologueLines.reduce((countMap, sentence)=> {
+  var wordCount = sentence.split(' ').length;
+  if (countMap[wordCount])
+      {countMap[wordCount]++;}
+    else
+      {countMap[wordCount] = 1;}
+
+  return countMap;
+
+},{});
