@@ -16,3 +16,23 @@ const monologueLines = [
   'No.',
   'I am the one who knocks!'
 ];
+function batteryCounter(totalAmount, batteryAmount) {
+  return totalAmount + batteryAmount;
+}
+
+var totalBatteries = batteryBatches.reduce(batteryCounter, 0)
+
+var linesTotal = {}
+
+function linesCounter(LineAmount, line) {
+  var wordCount = line.split(" ").length
+
+  if (linesTotal[wordCount]) {
+    linesTotal[wordCount]++;
+  } else {
+    linesTotal[wordCount] = 1;
+  }
+  return linesTotal
+}
+
+var wordCountMap = monologueLines.reduce(linesCounter, 0)
