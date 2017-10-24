@@ -16,3 +16,37 @@ const monologueLines = [
   'No.',
   'I am the one who knocks!'
 ];
+
+const wordCountMap = (reduce(monologueLines, countWords, 0));
+
+function countWords(result, unit, index, collection) {
+  result = [];
+  for (var i = collection.length - 1; i >= 0; i--) {
+    result.push(collection[i].split(" ").length);
+  }
+  return tallyResults(result);
+}
+
+function tallyResults(array){
+  var counts = {};
+  for(var i = 0; i< array.length; i++) {
+    var num = array[i];
+    counts[num] = counts[num] ? counts[num]+1 : 1;
+   }
+  return counts;
+}
+
+function reduce(collection, callback, initialValue) {
+  let result = initialValue;
+  collection.forEach((unit, index) => {
+    result = callback(result, unit, index, collection);
+  });
+  return result;
+}
+
+const totalBatteries = (reduce(batteryBatches, countBatteries, 0));
+
+function countBatteries(result, battery) {
+  result = result + battery;
+  return result;
+}
