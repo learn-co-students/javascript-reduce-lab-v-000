@@ -16,3 +16,32 @@ const monologueLines = [
   'No.',
   'I am the one who knocks!'
 ];
+
+function batteryCounter(){
+  return batteryBatches.reduce((total, number)=>{
+    return total + number
+  })
+}
+
+var totalBatteries = batteryCounter()
+
+function wordCounter(wordHash, string){
+  let wordKey = string.split(' ').length.toString()
+  if(wordHash[wordKey]){
+    ++wordHash[wordKey]
+    return wordHash
+  }
+  else{
+    wordHash[wordKey] = 1
+    return wordHash
+  }
+}
+
+
+function wordMapper(){
+  let counter = monologueLines.reduce(wordCounter, {ignore: "me"})
+  delete counter.ignore
+  return counter
+}
+
+let wordCountMap = wordMapper()
