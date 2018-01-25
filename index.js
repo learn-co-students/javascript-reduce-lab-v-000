@@ -17,17 +17,16 @@ const monologueLines = [
   'I am the one who knocks!'
 ];
 
-var totalBatteries = batteryBatches.reduce(function(totalAmount, num) {
-  return totalAmount + num;
-}, 0);
+const totalBatteries = batteryBatches.reduce(
+  (prev, current) => prev + current,
+0);
 
-var wordCountMap = monologueLines.reduce(function(container, sentence) {
-  var sentenceCount = sentence.split(' ').length;
-  if (container[sentenceCount]) {
-    container[sentenceCount]++;
-  } else {
-    container[sentenceCount] = 1;
-  }
+const wordCountMap = monologueLines.reduce(
+  (prev, current) => {
+    prev[current.split(' ').length] !== undefined ?
+      prev[current.split(' ').length] += 1 :
+      prev[current.split(' ').length] = 1;
 
-  return container;
-}, {});
+    return prev
+  },
+{});
