@@ -1,5 +1,11 @@
 const batteryBatches = [4, 5, 3, 4, 4, 6, 5];
 
+function getSum(arr){
+  return arr.reduce((sum,n)=>sum+n);
+}
+
+let totalBatteries = getSum(batteryBatches)
+
 const monologueLines = [
   'Who are you talking to right now?',
   'Who is it you think you see?',
@@ -16,3 +22,9 @@ const monologueLines = [
   'No.',
   'I am the one who knocks!'
 ];
+
+let wordCountMap = monologueLines.reduce((map, str) => {
+  let count = str.split(' ').length;
+  map[count] = (map[count] || 0) + 1;
+  return map;
+}, {});
